@@ -10,6 +10,7 @@ http://muthukadan.net
 - A full-duplex single socket connection
 - Alternative to HTTP polling
 - Two-way communication between client and server
+- [[http://caniuse.com/#feat=websockets][Can I use Websockets?]]
 
 * Spec
 
