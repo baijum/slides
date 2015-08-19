@@ -17,6 +17,23 @@ http://muthukadan.net
 - The WebSocket Protocol: [[https://tools.ietf.org/html/rfc6455][RFC 6455]]
 - The WebSocket API: [[http://www.w3.org/TR/websockets]]
 
+* Gorilla Project
+
+- A web toolkit (not a framework!)
+- Packages: context, mux, websocket etc.
+- Licensed under the New BSD License.
+- Website: [[http://www.gorillatoolkit.org]]
+
+* Gorilla Websocket
+
+- Implements the WebSocket protocol defined in [[https://tools.ietf.org/html/rfc6455][RFC 6455]]
+- Installation:
+
+  go get github.com/gorilla/websocket
+
+- Documentation: [[http://godoc.org/github.com/gorilla/websocket]]
+- Alternative: [[http://godoc.org/golang.org/x/net/websocket][golang.org/x/net/websocket]]
+
 * API
 
 .code gorilla_websocket/example1.html
@@ -36,3 +53,8 @@ http://muthukadan.net
 * Backend Contd.
 
 .code gorilla_websocket/example1.go /START WRITER/,/END WRITER/
+
+* Code Walkthrough
+
+- Webtail - tool to stream file content to web
+- Git repo: [[https://github.com/baijum/webtail]]
