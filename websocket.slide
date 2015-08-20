@@ -48,11 +48,11 @@ http://muthukadan.net
 
 * Backend Contd.
 
-.code gorilla_websocket/example1.go /START READER/,/END READER/
+.code gorilla_websocket/example1.go /START WRITER/,/END WRITER/
 
 * Backend Contd.
 
-.code gorilla_websocket/example1.go /START WRITER/,/END WRITER/
+.code gorilla_websocket/example1.go /START READER/,/END READER/
 
 * Code Walkthrough
 
