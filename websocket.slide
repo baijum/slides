@@ -40,11 +40,11 @@ http://muthukadan.net
 
 * Backend
 
-.code gorilla_websocket/example1.go /START SERVE/,/END SERVE/
+.code gorilla_websocket/example1.go /START UPGRADER/,/END UPGRADER/
 
 * Backend Contd.
 
-.code gorilla_websocket/example1.go /START UPGRADER/,/END UPGRADER/
+.code gorilla_websocket/example1.go /START SERVE/,/END SERVE/
 
 * Backend Contd.
 
