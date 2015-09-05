@@ -34,7 +34,7 @@ http://muthukadan.net
 - Documentation: [[http://godoc.org/github.com/gorilla/websocket]]
 - Alternative: [[http://godoc.org/golang.org/x/net/websocket][golang.org/x/net/websocket]]
 
-* API
+* Basic Example Usage
 
 .code gorilla_websocket/example1.html
 
@@ -53,6 +53,64 @@ http://muthukadan.net
 * Backend Contd.
 
 .code gorilla_websocket/example1.go /START READER/,/END READER/
+
+* WebSocket Constructor
+
+    WebSocket(
+      DOMString url,
+      optional (DOMString or DOMString[]) protocols
+    )
+
+- url: URL to which the WebSocket server will respond
+- protocols (optional): a single protocol string or an array of protocol strings used to indicate sub-protocols
+- The constructor can throw exception
+- event with the name "error" is sent to the WebSocket object (thereby invoking its `onerror` handler)
+- the CloseEvent is sent to the WebSocket object (thereby invoking its `onclose` handler)
+
+* WebSocket Connection Examples
+
+    var conn = new WebSocket("ws://example.com/ws")
+
+    var conn = new WebSocket("ws://example.com/ws", "protocolOne");
+
+    var conn = new WebSocket("ws://example.com/ws", ["protocolOne", "protocolTwo"]);
+
+- `ws` has replaced `http`, similarly `wss` replaces `https`
+- On return, `conn.readyState` is `CONNECTING`
+- The `readyState` will become `OPEN` once the connection is ready to transfer data
+- `conn.protocol` gives which protocol the server selected (once `readyState` is `OPEN`)
+
+* Sending data to the server
+
+- call the WebSocket object's `send()` method for each message you want to send
+
+    conn.send("Some text to be send to sevrver")
+
+- You can send data as a string, Blob, or ArrayBuffer.
+
+    conn.onopen = function (event) {
+        conn.send("Some text to be send to sevrver")
+    }
+
+- Using JSON
+
+    conn.send(JSON.stringify(msg))
+
+* Receiving messages from the server
+
+- WebSockets is an event-driven API
+- when messages are received, a "message" event is delivered to the `onmessage` function.
+- To begin listening for incoming data, you can do something like this:
+
+    conn.onmessage = function (event) {
+        console.log(event.data);
+    }
+
+* Closing the connection
+
+    conn.close()
+
+- examine the socket's bufferedAmount attribute before attempting to close the connection to determine if any data has yet to be transmitted on the network.
 
 * Code Walkthrough
 
